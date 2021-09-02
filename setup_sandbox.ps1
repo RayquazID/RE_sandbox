@@ -31,8 +31,8 @@ function DownloadWireshark {
     $FileName = "Wireshark-win64-3.4.8.exe"
     if ( -Not (Test-Path "./Installer/Wireshark/$FileName")) {
         Invoke-WebRequest -Uri $urlWireShark -OutFile "./Installer/Wireshark/$FileName"
-
     }
+    "./Installer/Wireshark/$FileName"
 }
 function DownloadMozilla {
     param (
@@ -43,6 +43,7 @@ function DownloadMozilla {
     if ( -Not (Test-Path "./Installer/Mozilla/$FileName")) {
         Invoke-WebRequest -Uri $urlMozilla -OutFile "./Installer/Mozilla/$FileName"
     }
+    "./Installer/Mozilla/$FileName"
 }
 function DownloadBurp {
     param (
@@ -53,6 +54,7 @@ function DownloadBurp {
     if ( -Not (Test-Path "./Installer/Mozilla/$FileName")) {
         Invoke-WebRequest -Uri $urlBurp -OutFile "./Installer/Burp/$FileName"
     }
+    "./Installer/Burp/$FileName"
 }
 function DownloadVSCode {
     param (
@@ -63,6 +65,16 @@ function DownloadVSCode {
     if ( -Not (Test-Path "./Installer/vscode/$FileName")) {
         Invoke-WebRequest -Uri $urlVSCode -OutFile "./Installer/vscode/$FileName"
     }
+    "./Installer/vscode/$FileName"
+}
+function Install {
+    param (
+    )
+    DownloadProcMon
+    DownloadWireshark
+    DownloadMozilla
+    DownloadBurp
+    DownloadVSCode
 }
 function InstallPackages {
     param (
@@ -70,8 +82,4 @@ function InstallPackages {
 }
 
 InitSetup
-DownloadProcMon
-DownloadWireshark
-DownloadMozilla
-DownloadBurp
-DownloadVSCode
+Install
