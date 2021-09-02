@@ -1,6 +1,7 @@
 <Configuration>
 <VGpu>Default</VGpu>
 <Networking>Default</Networking>
+<ProtectedClient>Enable</ProtectedClient>
 <LogonCommand>
    <Command>PowerShell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/RayquazID/RE_sandbox/main/setup_sandbox.ps1'))"</Command>
 </LogonCommand>
