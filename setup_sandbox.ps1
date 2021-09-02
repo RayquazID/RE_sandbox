@@ -39,7 +39,7 @@ function DownloadMozilla {
     )
     New-Item -Path "./Installer/Mozilla" -Type Directory
     $urlMozilla = "https://download-installer.cdn.mozilla.net/pub/firefox/releases/91.0.2/win64/de/Firefox%20Setup%2091.0.2.msi"
-    $FileName = "Firefox Setup 91.0.2.msi"
+    $FileName = "Firefox-Setup-91.0.2.msi"
     if ( -Not (Test-Path "./Installer/Mozilla/$FileName")) {
         Invoke-WebRequest -Uri $urlMozilla -OutFile "./Installer/Mozilla/$FileName"
     }
@@ -60,8 +60,8 @@ function DownloadVSCode {
     param (
     )
     New-Item -Path "./Installer/vscode" -Type Directory
-    $urlVSCode = "https://az764295.vo.msecnd.net/stable/3866c3553be8b268c8a7f8c0482c0c0177aa8bfa/VSCodeUserSetup-x64-1.59.1.exe"
-    $FileName = "VSCodeUserSetup-x64-1.59.1.exe"
+    $urlVSCode = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64"
+    $FileName = "VSCodeSystemSetup.exe"
     if ( -Not (Test-Path "./Installer/vscode/$FileName")) {
         Invoke-WebRequest -Uri $urlVSCode -OutFile "./Installer/vscode/$FileName"
     }
@@ -71,9 +71,9 @@ function Install {
     param (
     )
     DownloadProcMon
-    DownloadWireshark
+    #DownloadWireshark
     DownloadMozilla
-    DownloadBurp
+    #DownloadBurp
     DownloadVSCode
 }
 function InstallPackages {
