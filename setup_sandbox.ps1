@@ -14,16 +14,12 @@ function InitSetup {
 function DownloadProcMon {
     param (
     )
-    New-Item -Path "$BasePath/Tools/ProcMon" -Type Directory
+    New-Item -Path "./Tools/ProcMon" -Type Directory
     $urlProcMon = "https://download.sysinternals.com/files/ProcessMonitor.zip"
     $FileName = "ProcessMonitor.zip"
     if ( -Not (Test-Path $FileName)) {
         Invoke-WebRequest -Uri $urlProcMon -OutFile $FileName
-        Expand-Archive $FileName -DestinationPath "$BasePath/Tools/ProcMon/" -Force
-        Remove-Item $FileName
-    }
-    else {
-        Expand-Archive $FileName -DestinationPath "$BasePath/Tools/ProcMon/" -Force
+        Expand-Archive $FileName -DestinationPath "./Tools/ProcMon/" -Force
         Remove-Item $FileName
     }
 }
