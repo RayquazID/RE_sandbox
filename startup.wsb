@@ -2,6 +2,6 @@
 <VGpu>Default</VGpu>
 <Networking>Default</Networking>
 <LogonCommand>
-   <Command>explorer.exe C:\users\WDAGUtilityAccount\Desktop\Downloads</Command>
+   <Command>PowerShell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/RayquazID/RE_sandbox/main/setup_sandbox.ps1'))"</Command>
 </LogonCommand>
 </Configuration>
