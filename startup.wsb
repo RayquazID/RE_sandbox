@@ -1,0 +1,7 @@
+<Configuration>
+<VGpu>Default</VGpu>
+<Networking>Default</Networking>
+<LogonCommand>
+   <Command>explorer.exe C:\users\WDAGUtilityAccount\Desktop\Downloads</Command>
+</LogonCommand>
+</Configuration>
