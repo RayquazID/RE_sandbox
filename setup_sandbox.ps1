@@ -22,6 +22,7 @@ function DownloadProcMon {
         Expand-Archive $FileName -DestinationPath "./Tools/ProcMon/" -Force
         Remove-Item $FileName
     }
+    Start-Process -FilePath "./Installer/Wireshark/$FileName"
 }
 function DownloadWireshark {
     param (
@@ -67,14 +68,24 @@ function DownloadVSCode {
     }
     Start-Process -FilePath "./Installer/vscode/$FileName"
 }
+function ConfigureBookmarks {
+    param (
+    )
+    
+}
 function Install {
     param (
     )
     DownloadProcMon
     #DownloadWireshark
-    DownloadMozilla
+    #DownloadMozilla
     #DownloadBurp
-    DownloadVSCode
+    #DownloadVSCode
+}
+function Configure {
+    param (
+    )
+    ConfigureBookmarks
 }
 function InstallPackages {
     param (
@@ -83,3 +94,4 @@ function InstallPackages {
 
 InitSetup
 Install
+Configure
