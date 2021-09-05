@@ -72,14 +72,16 @@ function ConfigureBookmarks {
     param (
     )
 
-    Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
+    
 
-    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox" -Name DisplayBookmarksToolbar -Value "0x1"
+    
 
     New-Item –Path "HKCU:\Software\Policies\" –Name Mozilla
     New-Item –Path "HKCU:\Software\Policies\Mozilla\" –Name Firefox
     New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\" –Name Bookmarks
     New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\" –Name 1
+
+    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox" -Name DisplayBookmarksToolbar -Value "0x1"
 
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name Title -Value "Shodan"
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name URL -Value "https://shodan.io"
@@ -92,6 +94,8 @@ function ConfigureBookmarks {
         
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name Title -Value "virustotal"
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name URL -Value "https://www.virustotal.com/gui/home/upload"
+
+    Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
 
     return
 
