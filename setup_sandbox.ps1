@@ -72,6 +72,8 @@ function ConfigureBookmarks {
     param (
     )
 
+    Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
+
     New-Item –Path "HKCU:\Software\Policies\" –Name Mozilla
     New-Item –Path "HKCU:\Software\Policies\Mozilla\" –Name Firefox
     New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\" –Name Bookmarks
@@ -93,8 +95,6 @@ function ConfigureBookmarks {
         
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\4\" -Name Title -Value "virustotal"
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\4\" -Name URL -Value "https://www.virustotal.com/gui/home/upload"
-
-    Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
 
     return
 
