@@ -1,5 +1,6 @@
 $Logfile = "C:/Setup/Logs/new_log.log"
 
+
 Function LogWrite
 {
    Param ([string]$logstring)
@@ -9,16 +10,16 @@ Function LogWrite
 function InitSetup {
     param (
     )
-    LogWrite("Start init setup")
+    
     $BasePath = "C:/Setup"
     
     New-Item -Path "$BasePath" -Type Directory
 
     Set-Location $BasePath
-
+    New-Item -Path "./Logs" -Type Directory
     New-Item -Path "./Installer/" -Type Directory
     New-Item -Path "./Tools/" -Type Directory
-    
+    LogWrite("Init Setup done")
 }
 function DownloadProcMon {
     param (
