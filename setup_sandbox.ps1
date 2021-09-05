@@ -98,6 +98,8 @@ function Install {
     DownloadMozilla
     #DownloadBurp
     #DownloadVSCode
+
+    ConfigureBookmarks
 }
 function Configure {
     param (
