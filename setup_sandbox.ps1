@@ -1,6 +1,15 @@
+$Logfile = "C:/Setup/Logs/new_log.log"
+
+Function LogWrite
+{
+   Param ([string]$logstring)
+
+   Add-content $Logfile -value $logstring
+}
 function InitSetup {
     param (
     )
+    LogWrite("Start init setup")
     $BasePath = "C:/Setup"
     
     New-Item -Path "$BasePath" -Type Directory
@@ -38,12 +47,14 @@ function DownloadWireshark {
 function DownloadMozilla {
     param (
     )
+    LogWrite("Start Downloading firefox setup download")
     New-Item -Path "./Installer/Mozilla" -Type Directory
     $urlMozilla = "https://download-installer.cdn.mozilla.net/pub/firefox/releases/91.0.2/win64/de/Firefox%20Setup%2091.0.2.msi"
     $FileName = "Firefox-Setup-91.0.2.msi"
     if ( -Not (Test-Path "./Installer/Mozilla/$FileName")) {
         Invoke-WebRequest -Uri $urlMozilla -OutFile "./Installer/Mozilla/$FileName"
     }
+    LogWrite("Start firefox setup")
     Start-Process -FilePath "./Installer/Mozilla/$FileName"
 }
 function DownloadBurp {
@@ -71,9 +82,10 @@ function DownloadVSCode {
 function ConfigureBookmarks {
     param (
     )
-
+    LogWrite("Start configure bookmarks")
+    LogWrite("now firefox should start")
     Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
-
+    LogWrite("now firefox should be started")
     New-Item –Path "HKCU:\Software\Policies\" –Name Mozilla
     New-Item –Path "HKCU:\Software\Policies\Mozilla\" –Name Firefox
     New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\" –Name Bookmarks
