@@ -87,7 +87,7 @@ function ConfigureBookmarks {
 
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name Title -Value "Test-google"
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name URL -Value "https://google.com"
-    }
+    
 
 }
 function DownloadAll {
