@@ -95,7 +95,7 @@ function Install {
     )
     DownloadProcMon
     #DownloadWireshark
-    #DownloadMozilla
+    DownloadMozilla
     #DownloadBurp
     #DownloadVSCode
 }
