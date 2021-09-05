@@ -3,9 +3,9 @@ $Logfile = "C:/Setup/Logs/new_log.log"
 
 Function LogWrite
 {
-   Param ([string]$logstring)
-
-   Add-content $Logfile -value $logstring
+    Param ([string]$logstring)
+    $time = Get-Date -Format "dddd MM/dd/yyyy HH:mm K"
+    Add-content "Time: $time Message: $Logfile" -value $logstring
 }
 function InitSetup {
     param (
@@ -83,6 +83,7 @@ function DownloadVSCode {
 function ConfigureBookmarks {
     param (
     )
+    
     LogWrite("Start configure bookmarks")
     LogWrite("now firefox should start")
     Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
