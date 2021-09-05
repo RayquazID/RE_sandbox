@@ -90,16 +90,14 @@ function ConfigureBookmarks {
     }
 
 }
-function Install {
+function DownloadAll {
     param (
     )
-    DownloadProcMon
+    #DownloadProcMon
     #DownloadWireshark
     DownloadMozilla
     #DownloadBurp
     #DownloadVSCode
-
-    ConfigureBookmarks
 }
 function Configure {
     param (
@@ -112,5 +110,5 @@ function InstallPackages {
 }
 
 InitSetup
-Install
+DownloadAll
 Configure
