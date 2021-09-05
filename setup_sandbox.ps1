@@ -71,7 +71,24 @@ function DownloadVSCode {
 function ConfigureBookmarks {
     param (
     )
+    Set-ExecutionPolicy Bypass
+    $profilepath = "C:\Users\WDAGUtilityAccount\AppData\Roaming\Mozilla\Firefox\Profiles"
+    $profiles = Get-ChildItem -Path $profilepath -Directory -Force -ErrorAction SilentlyContinue | Select-Object FullName
+    foreach ($i in $profiles) {
     
+    if ($i.FullName -match "\-release$") {
+        $releaseProfile = $i.FullName
+    } 
+
+    New-Item –Path "HKCU:\Software\Policies\" –Name Mozilla
+    New-Item –Path "HKCU:\Software\Policies\Mozilla\" –Name Firefox
+    New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\" –Name Bookmarks
+    New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\" –Name 1
+
+    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name Title -Value "Test-google"
+    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name URL -Value "https://google.com"
+    }
+
 }
 function Install {
     param (
