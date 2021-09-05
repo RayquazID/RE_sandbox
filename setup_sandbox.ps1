@@ -71,14 +71,14 @@ function DownloadVSCode {
 function ConfigureBookmarks {
     param (
     )
-    Set-ExecutionPolicy Bypass
-    $profilepath = "C:\Users\WDAGUtilityAccount\AppData\Roaming\Mozilla\Firefox\Profiles"
-    $profiles = Get-ChildItem -Path $profilepath -Directory -Force -ErrorAction SilentlyContinue | Select-Object FullName
-    foreach ($i in $profiles) {
+    #Set-ExecutionPolicy Bypass
+    #$profilepath = "C:\Users\WDAGUtilityAccount\AppData\Roaming\Mozilla\Firefox\Profiles"
+    #$profiles = Get-ChildItem -Path $profilepath -Directory -Force -ErrorAction SilentlyContinue | Select-Object FullName
+    #foreach ($i in $profiles) {
     
-    if ($i.FullName -match "\-release$") {
-        $releaseProfile = $i.FullName
-    } 
+    #if ($i.FullName -match "\-release$") {
+    #    $releaseProfile = $i.FullName
+    #} 
 
     New-Item –Path "HKCU:\Software\Policies\" –Name Mozilla
     New-Item –Path "HKCU:\Software\Policies\Mozilla\" –Name Firefox
