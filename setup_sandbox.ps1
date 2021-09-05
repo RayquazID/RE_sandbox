@@ -80,20 +80,23 @@ function ConfigureBookmarks {
     New-Item –Path "HKCU:\Software\Policies\Mozilla\" –Name Firefox
     New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\" –Name Bookmarks
     New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\" –Name 1
+    New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\" –Name 2
+    New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\" –Name 3
+    New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\" –Name 4
 
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox" -Name DisplayBookmarksToolbar -Value "0x1"
 
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name Title -Value "Shodan"
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name URL -Value "https://shodan.io"
     
-    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name Title -Value "dnsdumpster"
-    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name URL -Value "https://dnsdumpster.com"
+    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\2\" -Name Title -Value "dnsdumpster"
+    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\2\" -Name URL -Value "https://dnsdumpster.com"
     
-    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name Title -Value "gerynoise"
-    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name URL -Value "https://graynoise.io"
+    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\3\" -Name Title -Value "gerynoise"
+    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\3\" -Name URL -Value "https://graynoise.io"
         
-    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name Title -Value "virustotal"
-    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name URL -Value "https://www.virustotal.com/gui/home/upload"
+    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\4\" -Name Title -Value "virustotal"
+    Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\4\" -Name URL -Value "https://www.virustotal.com/gui/home/upload"
 
     Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
 
