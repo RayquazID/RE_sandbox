@@ -107,6 +107,7 @@ function DownloadAll {
     DownloadMozilla
     #DownloadBurp
     #DownloadVSCode
+    ConfigureBookmarks
     return
 }
 function Configure {
@@ -122,4 +123,4 @@ function InstallPackages {
 
 InitSetup
 DownloadAll
-Configure
+#Configure
