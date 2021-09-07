@@ -86,8 +86,7 @@ function ConfigureBookmarks {
     LogWrite("wait for firefox to finish setup")
     Write-Host "Wait a few secs"
     Start-Sleep -s 10
-    Write-Host "Input whatever you want"
-    $a = read-host
+
     LogWrite("Start configure bookmarks")
     LogWrite("now firefox should start")
     Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
