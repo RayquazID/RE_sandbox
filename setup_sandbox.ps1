@@ -88,11 +88,15 @@ function ConfigureBookmarks {
     Start-Sleep -s 10
 
     LogWrite("Start configure bookmarks")
+
     LogWrite("now firefox should start")
     Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
+    
     Start-Sleep -s 5
-    Stop-Process -Name "firefox"
+    
     LogWrite("now firefox should be started")
+    Stop-Process -Name "firefox"
+    LogWrite("now firefox should be stopped")
     New-Item –Path "HKCU:\Software\Policies\" –Name Mozilla
     New-Item –Path "HKCU:\Software\Policies\Mozilla\" –Name Firefox
     New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\" –Name Bookmarks
