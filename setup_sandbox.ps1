@@ -57,7 +57,6 @@ function DownloadMozilla {
     }
     LogWrite("Start firefox setup")
     Start-Process -FilePath "./Installer/Mozilla/$FileName"
-    Start-Sleep -s 15
 }
 function DownloadBurp {
     param (
@@ -88,7 +87,7 @@ function ConfigureBookmarks {
     Write-Host "Wait a few secs"
     Start-Sleep -s 10
     Write-Host "Input whatever you want"
-    $a = read-hos
+    $a = read-host
     LogWrite("Start configure bookmarks")
     LogWrite("now firefox should start")
     Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
