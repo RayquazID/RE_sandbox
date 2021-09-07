@@ -5,7 +5,7 @@ Function LogWrite
 {
     Param ([string]$logstring)
     $time = Get-Date -Format "dddd MM/dd/yyyy HH:mm K"
-    Add-content $Logfile -value "Time: $time Message: $logstring"
+    Add-content -Path $Logfile -value "Time: $time Message: $logstring"
 }
 function InitSetup {
     param (
