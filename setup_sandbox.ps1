@@ -57,6 +57,7 @@ function DownloadMozilla {
     }
     LogWrite("Start firefox setup")
     Start-Process -FilePath "./Installer/Mozilla/$FileName"
+    Start-Sleep -s 15
 }
 function DownloadBurp {
     param (
