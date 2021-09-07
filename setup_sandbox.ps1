@@ -104,7 +104,8 @@ function ConfigureBookmarks {
     New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\" –Name 2
     New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\" –Name 3
     New-Item –Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\" –Name 4
-
+    LogWrite("now bookmark reg key should be set")
+    
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox" -Name DisplayBookmarksToolbar -Value "0x1"
 
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\1\" -Name Title -Value "Shodan"
@@ -118,7 +119,7 @@ function ConfigureBookmarks {
         
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\4\" -Name Title -Value "virustotal"
     Set-ItemProperty -Path "HKCU:\Software\Policies\Mozilla\Firefox\Bookmarks\4\" -Name URL -Value "https://www.virustotal.com/gui/home/upload"
-
+    LogWrite("now bookmarks should be set")
     return
 
 }
