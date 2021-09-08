@@ -19,12 +19,12 @@ function InitSetup {
     New-Item -Path "./Logs" -Type Directory
     New-Item -Path "./Installer/" -Type Directory
     New-Item -Path "./Tools/" -Type Directory
-    $initRegUrl = "https://raw.githubusercontent.com/RayquazID/RE_sandbox/main/init.reg"
-    Invoke-WebRequest -Uri $initRegUrl -OutFile "./init.reg"
+    #$initRegUrl = "https://raw.githubusercontent.com/RayquazID/RE_sandbox/main/init.reg"
+    #Invoke-WebRequest -Uri $initRegUrl -OutFile "./init.reg"
 
     # import reg
-    importRegistry("./init.reg")
-
+    #importRegistry("./init.reg")
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name SearchboxTaskbarMode -Value "00000000"
     LogWrite("Init Setup done")
 }
 function DownloadProcMon {
