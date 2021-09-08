@@ -1,2 +1,7 @@
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search]
+"InstalledWin32AppsRevision"="{06E2D1B3-C6FC-4CA9-AB75-0794D6AD55B9}"
+"InstalledPackagedAppsRevision"="{8E91B10B-4D80-4588-8DAF-0A0F34C6A1A0}"
+"CortanaStateLastRun"=hex:c2,11,39,61,00,00,00,00
+"IsAssignedAccess"=dword:00000000
 "SearchboxTaskbarMode"=dword:00000000
+"NamespaceSettingsRevision"="{87A0F8C4-A96A-40B1-93B6-6E5F6933D581}"
