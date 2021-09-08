@@ -100,7 +100,11 @@ function ConfigureBookmarks {
     Start-Sleep -s 10
 
     LogWrite("Start configure bookmarks")
-
+    $toolbar = "{`"policies`": {`"DisplayBookmarksToolbar`": true}}"
+    New-Item -Path "C:\Program Files\Mozilla Firefox\distribution" -Type Directory
+    New-Item -Path "C:\Program Files\Mozilla Firefox\distribution\policies.json" -Type File
+    Add-Content -Path "C:\Program Files\Mozilla Firefox\distribution\policies.json" -Value $toolbar
+    
     LogWrite("now firefox should start")
     Start-Process -FilePath "C:\Program Files\Mozilla Firefox\firefox.exe"
     
