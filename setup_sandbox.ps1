@@ -19,6 +19,12 @@ function InitSetup {
     New-Item -Path "./Logs" -Type Directory
     New-Item -Path "./Installer/" -Type Directory
     New-Item -Path "./Tools/" -Type Directory
+    $initRegUrl = "https://raw.githubusercontent.com/RayquazID/RE_sandbox/main/init.reg"
+    Invoke-WebRequest -Uri $initRegUrl -OutFile "./init.reg"
+
+    # import reg
+    importRegistry("./init.reg")
+
     LogWrite("Init Setup done")
 }
 function DownloadProcMon {
@@ -80,6 +86,13 @@ function DownloadVSCode {
     }
     Start-Process -FilePath "./Installer/vscode/$FileName"
 }
+function importRegistry {
+    param (
+        [String]$regPath
+    )
+    #Start-Process -FilePath "cmd.exe" -ArgumentList "/c reg.exe import `"C:\setup\bookmarks.reg`"" -Wait -passthru
+    Start-Process -FilePath "cmd.exe" -ArgumentList "/c reg.exe import $regPath" -Wait -passthru
+}
 function ConfigureBookmarks {
     param (
     )
@@ -98,10 +111,11 @@ function ConfigureBookmarks {
     Stop-Process -Name "firefox"
     LogWrite("now firefox should be stopped")
     
-    $regUrl = "https://raw.githubusercontent.com/RayquazID/RE_sandbox/main/bookmarks.reg"
-    Invoke-WebRequest -Uri $regUrl -OutFile "./bookmarks.reg"
+    $BookmarksRegUrl = "https://raw.githubusercontent.com/RayquazID/RE_sandbox/main/bookmarks.reg"
+    Invoke-WebRequest -Uri $BookmarksRegUrl -OutFile "./bookmarks.reg"
 
-    Start-Process -FilePath "cmd.exe" -ArgumentList "/c reg.exe import `"C:\setup\bookmarks.reg`"" -Wait -passthru
+    # import reg
+    importRegistry("./bookmarks.reg")
     
     #New-Item –Path "HKCU:\Software\Policies\" –Name Mozilla
     #New-Item –Path "HKCU:\Software\Policies\Mozilla\" –Name Firefox
