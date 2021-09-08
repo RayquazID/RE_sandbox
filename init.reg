@@ -1,4 +1,2 @@
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search]
-"SearchboxTaskbarMode"="dword:00000000"
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Search]
-"SearchboxTaskbarMode"="dword:00000000"
+"SearchboxTaskbarMode"=dword:00000000
