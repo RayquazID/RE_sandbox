@@ -88,6 +88,7 @@ function importRegistry {
     param (
         [String]$regPath
     )
+
     #Start-Process -FilePath "cmd.exe" -ArgumentList "/c reg.exe import `"C:\setup\bookmarks.reg`"" -Wait -passthru
     Start-Process -FilePath "cmd.exe" -ArgumentList "/c reg.exe import $regPath" -Wait -passthru
 }
@@ -114,6 +115,9 @@ function ConfigureBookmarks {
 
     # import reg
     importRegistry("./bookmarks.reg")
+
+
+    
     
     #New-Item –Path "HKCU:\Software\Policies\" –Name Mozilla
     #New-Item –Path "HKCU:\Software\Policies\Mozilla\" –Name Firefox
